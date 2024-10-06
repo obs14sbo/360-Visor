@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visor 360 con Botones Dinámicos</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+</head>
+<body>
+    <!-- Definir la escena de A-Frame -->
+    <a-scene>
+        <!-- Definir el cielo, que se actualizará con las imágenes -->
+        <a-sky id="skybox" src="https://static.wixstatic.com/media/81f16a_51a52848f14d4ba38cedc3f4a27dbcba~mv2.jpg" rotation="0 -130 0"></a-sky>
+
+        <!-- Habilitar el modo VR -->
+        <a-entity camera look-controls wasd-controls position="0 1.6 0">
+            <!-- Añadir el cursor (retículo) para la interacción en VR -->
+            <a-cursor></a-cursor>
+        </a-entity>
+    </a-scene>
+
+    <script>
+        // Función para cambiar la imagen del visor 360°
+        function cambiarImagen(imagen) {
+            // Cambiar la imagen del cielo (a-sky)
+            const skybox = document.querySelector('#skybox');
+            skybox.setAttribute('src', imagen);
+
+            // Lógica condicional para crear o eliminar botones según la imagen
+            if (imagen === 'https://static.wixstatic.com/media/81f16a_0dd368a686614c498ee1ff8c636a1568~mv2.jpg') {
+                eliminarBotones();
+                crearBotonesImagen1();
+            } else if (imagen === 'https://static.wixstatic.com/media/81f16a_6d4b2e82dd5a46179ba731ecf15cfaa2~mv2.jpg') {
+                eliminarBotones();
+                crearBotonesImagen2();
+            } else if (imagen === 'https://static.wixstatic.com/media/81f16a_e5a57bbe1fd7452c824ab20ccb863fb8~mv2.jpg') {
+                eliminarBotones();
+                crearBotonesImagen3();
+            } else if (imagen === 'https://static.wixstatic.com/media/81f16a_51a52848f14d4ba38cedc3f4a27dbcba~mv2.jpg') {
+                eliminarBotones();
+                crearBotonesImagen4();
+            } else if (imagen === 'https://static.wixstatic.com/media/81f16a_1acb6bf4b48a406180d49e8285703ee0~mv2.jpg') {
+                eliminarBotones();
+                crearBotonesImagen5();
+            } else if (imagen === 'https://static.wixstatic.com/media/81f16a_70c68efb961248b499d28d7bb7d2cac3~mv2.jpg') {
+                eliminarBotones();
+                crearBotonesImagen6();
+            } else if (imagen === 'https://static.wixstatic.com/media/81f16a_03315aa45aa14b7680a7bff9744fd474~mv2.jpg') {
+                eliminarBotones();
+                crearBotonesImagen7();
+            }
+            else if (imagen === 'https://static.wixstatic.com/media/81f16a_7c6ddf96418a45b78239f3df78e78770~mv2.jpg') {
+                eliminarBotones();
+                crearBotonesImagen8();
+            }  else if (imagen === 'https://static.wixstatic.com/media/81f16a_afa694ce2e624c84a020de0bb2e87c20~mv2.jpg') {
+                eliminarBotones();
+                crearBotonesImagen9();
+            }  else if (imagen === 'https://static.wixstatic.com/media/81f16a_806749445c714aa2865d114c1b0ed49a~mv2.jpg') {
+                eliminarBotones();
+                crearBotonesImagen10();
+            }
+            else if (imagen === 'https://static.wixstatic.com/media/81f16a_53090e315ce0411397da68324fb424a5~mv2.jpg') {
+                eliminarBotones();
+                crearBotonesImagen11();
+            }
+
+            
+        }
+
+        // Función para eliminar todos los botones
+        function eliminarBotones() {
+            const botones = document.querySelectorAll('.boton-dinamico');
+            botones.forEach(boton => {
+                boton.parentNode.removeChild(boton);
+            });
+        }
+
+        // Función para crear botones para la imagen 1
+        function crearBotonesImagen1() {
+            const escena = document.querySelector('a-scene');
+            
+            // Crear un botón dinámico (botón 1)
+            const boton1 = document.createElement('a-box');
+            boton1.setAttribute('color', '#FF0000');
+            boton1.setAttribute('position', '13.5 2 -23');
+            boton1.setAttribute('depth', '0.1');
+            boton1.setAttribute('height', '10');
+            boton1.setAttribute('width', '4');
+            boton1.setAttribute('class', 'boton-dinamico clickable');
+            boton1.setAttribute('material', 'opacity: 0; transparent: true');
+            boton1.setAttribute('onclick', "cambiarImagen('https://static.wixstatic.com/media/81f16a_6d4b2e82dd5a46179ba731ecf15cfaa2~mv2.jpg')");
+
+            // Añadir el botón a la escena
+            escena.appendChild(boton1);
+
+            const boton19 = document.createElement('a-box');
+            boton19.setAttribute('color', '#FF0000');
+            boton19.setAttribute('position', '9 2 -23');
+            boton19.setAttribute('depth', '0.1');
+            boton19.setAttribute('height', '10');
+            boton19.setAttribute('width', '3');
+            boton19.setAttribute('class', 'boton-dinamico clickable');
+            boton19.setAttribute('material', 'opacity: 0; transparent: true');
+            boton19.setAttribute('onclick', "cambiarImagen('https://static.wixstatic.com/media/81f16a_53090e315ce0411397da68324fb424a5~mv2.jpg')");
+
+            // Añadir el botón a la escena
+            escena.appendChild(boton19);
+            const boton10 = document.createElement('a-box');
+            boton10.setAttribute('color', '#FF0000');
+            boton10.setAttribute('position', '-14.5 -2 +23');
+            boton10.setAttribute('depth', '0.1');
+            boton10.setAttribute('height', '18');
+            boton10.setAttribute('width', '10');
+            boton10.setAttribute('class', 'boton-dinamico clickable');
+            boton10.setAttribute('material', 'opacity: 0; transparent: true');
+            boton10.setAttribute('onclick', "cambiarImagen('https://static.wixstatic.com/media/81f16a_1acb6bf4b48a406180d49e8285703ee0~mv2.jpg')");
+
+            // Añadir el botón a la escena
+            escena.appendChild(boton10);
+            const boton11 = document.createElement('a-box');
+            boton11.setAttribute('color', '#FF0000');
+            boton11.setAttribute('position', '4 0 -23');
+            boton11.setAttribute('depth', '0.1');
+            boton11.setAttribute('height', '18');
+            boton11.setAttribute('width', '8');
+            boton11.setAttribute('class', 'boton-dinamico clickable');
+            boton11.setAttribute('material', 'opacity: 0; transparent: true');
+            boton11.setAttribute('onclick', "cambiarImagen('https://static.wixstatic.com/media/81f16a_70c68efb961248b499d28d7bb7d2cac3~mv2.jpg')");
+
+            // Añadir el botón a la escena
+            escena.appendChild(boton11);
+                        // Crear el botón para cambiar a la imagen PB_B
+            const boton6 = document.createElement('a-box');
+            boton6.setAttribute('color', '#00FFFF');
+            boton6.setAttribute('position', '12 2 -5');
+            boton6.setAttribute('depth', '2');
+            boton6.setAttribute('height', '7');
+            boton6.setAttribute('width', '1');
+            boton6.setAttribute('class', 'boton-dinamico clickable');
+            boton6.setAttribute('material', 'opacity: 0; transparent: true');
+            boton6.setAttribute('onclick', "cambiarImagen('https://static.wixstatic.com/media/81f16a_51a52848f14d4ba38cedc3f4a27dbcba~mv2.jpg')");
+
+            // Añadir los botones a la escena
+            escena.appendChild(boton6);
+           
+        }
+
+        // Función para crear botones para la imagen 2
+        function crearBotonesImagen2() {
+            const escena = document.querySelector('a-scene');
+
+            // Crear el botón para regresar a la imagen untitled
+            const boton2 = document.createElement('a-box');
+            boton2.setAttribute('color', '#0000FF');
+            boton2.setAttribute('position', '-15 0 0');
+            boton2.setAttribute('depth', '4');
+            boton2.setAttribute('height', '20');
+            boton2.setAttribute('width', '4');
+            boton2.setAttribute('class', 'boton-dinamico clickable');
+            boton2.setAttribute('material', 'opacity: 0; transparent: true');
+            boton2.setAttribute('onclick', "cambiarImagen('https://static.wixstatic.com/media/81f16a_0dd368a686614c498ee1ff8c636a1568~mv2.jpg')");
+
+            // Crear el botón para cambiar a la imagen PB_B
+            const boton3 = document.createElement('a-box');
+            boton3.setAttribute('color', '#00FFFF');
+            boton3.setAttribute('position', '-10 0 -7');
+            boton3.setAttribute('depth', '4');
+            boton3.setAttribute('height', '15');
+            boton3.setAttribute('width', '4');
+            boton3.setAttribute('class', 'boton-dinamico clickable');
+            boton3.setAttribute('material', 'opacity: 0; transparent: true');
+            boton3.setAttribute('onclick', "cambiarImagen('https://static.wixstatic.com/media/81f16a_e5a57bbe1fd7452c824ab20ccb863fb8~mv2.jpg')");
+
+            // Añadir los botones a la escena
+            escena.appendChild(boton2);
+            escena.appendChild(boton3);
+
+
+        }
+
+        // Función para crear botones para la imagen 3
+        function crearBotonesImagen3() {
+            const escena = document.querySelector('a-scene');
+
+            // Aquí puedes agregar más botones si es necesario para la tercera imagen
+
+            // Ejemplo: crear un botón de vuelta a la imagen 1
+            const boton4 = document.createElement('a-box');
+            boton4.setAttribute('color', '#FF00FF');
+            boton4.setAttribute('position', '1 0 5');
+            boton4.setAttribute('depth', '1');
+            boton4.setAttribute('height', '10');
+            boton4.setAttribute('width', '3');
+            boton4.setAttribute('class', 'boton-dinamico clickable');
+            boton4.setAttribute('material', 'opacity: 0; transparent: true');
+            boton4.setAttribute('onclick', "cambiarImagen('https://static.wixstatic.com/media/81f16a_6d4b2e82dd5a46179ba731ecf15cfaa2~mv2.jpg')");
+
+            // Añadir el botón a la escena
+            escena.appendChild(boton4);
+        }
+        function crearBotonesImagen4() {
+            const escena = document.querySelector('a-scene');
+
+            // Aquí puedes agregar más botones si es necesario para la tercera imagen
+
+            // Ejemplo: crear un botón de vuelta a la imagen 1
+            const boton5 = document.createElement('a-box');
+            boton5.setAttribute('color', '#FF00FF');
+            boton5.setAttribute('position', '8 0 -12');
+            boton5.setAttribute('depth', '1');
+            boton5.setAttribute('height', '8');
+            boton5.setAttribute('width', '4');
+            boton5.setAttribute('class', 'boton-dinamico clickable');
+            boton5.setAttribute('material', 'opacity: 0; transparent: false');
+            boton5.setAttribute('onclick', "cambiarImagen('https://static.wixstatic.com/media/81f16a_0dd368a686614c498ee1ff8c636a1568~mv2.jpg')");
+
+            const boton9 = document.createElement('a-box');
+            boton9.setAttribute('color', '#0000FF');
+            boton9.setAttribute('position', '-27 -3 -40');
+            boton9.setAttribute('depth', '1');
+            boton9.setAttribute('height', '8');
+            boton9.setAttribute('width', '4');
+            boton9.setAttribute('class', 'boton-dinamico clickable');
+            boton9.setAttribute('material', 'opacity: 0; transparent: true');
+            boton9.setAttribute('onclick', "cambiarImagen('https://static.wixstatic.com/media/81f16a_1acb6bf4b48a406180d49e8285703ee0~mv2.jpg')");
+
+            // Añadir el botón a la escena
+            escena.appendChild(boton5);
+            escena.appendChild(boton9);
+        }
+        function crearBotonesImagen5() {
+            const escena = document.querySelector('a-scene');
+
+            // Aquí puedes agregar más botones si es necesario para la tercera imagen
+
+            // Ejemplo: crear un botón de vuelta a la imagen 1
+            const boton7 = document.createElement('a-box');
+            boton7.setAttribute('color', '#0000FF');
+            boton7.setAttribute('position', '4 2 -12');
+            boton7.setAttribute('depth', '1');
+            boton7.setAttribute('height', '11');
+            boton7.setAttribute('width', '6');
+            boton7.setAttribute('class', 'boton-dinamico clickable');
+            boton7.setAttribute('material', 'opacity: 0; transparent: false');
+            boton7.setAttribute('onclick', "cambiarImagen('https://static.wixstatic.com/media/81f16a_0dd368a686614c498ee1ff8c636a1568~mv2.jpg')");
+
+            const boton8 = document.createElement('a-box');
+            boton8.setAttribute('color', '#FF00FF');
+            boton8.setAttribute('position', '16 0 -2');
+            boton8.setAttribute('depth', '8');
+            boton8.setAttribute('height', '8');
+            boton8.setAttribute('width', '1');
+            boton8.setAttribute('class', 'boton-dinamico clickable');
+            boton8.setAttribute('material', 'opacity: 0; transparent: false');
+            boton8.setAttribute('onclick', "cambiarImagen('https://static.wixstatic.com/media/81f16a_51a52848f14d4ba38cedc3f4a27dbcba~mv2.jpg.jpg')");
+
+            // Añadir el botón a la escena
+            escena.appendChild(boton7);
+            escena.appendChild(boton8);
+        }
+        function crearBotonesImagen6() {
+            const escena = document.querySelector('a-scene');
+
+            // Aquí puedes agregar más botones si es necesario para la tercera imagen
+
+            // Ejemplo: crear un botón de vuelta a la imagen 1
+            const boton12 = document.createElement('a-box');
+            boton12.setAttribute('color', '#FF00FF');
+            boton12.setAttribute('position', '5 -3 -10');
+            boton12.setAttribute('depth', '1');
+            boton12.setAttribute('height', '5');
+            boton12.setAttribute('width', '5');
+            boton12.setAttribute('class', 'boton-dinamico clickable');
+            boton12.setAttribute('material', 'opacity: 0; transparent: true');
+            boton12.setAttribute('onclick', "cambiarImagen('https://static.wixstatic.com/media/81f16a_0dd368a686614c498ee1ff8c636a1568~mv2.jpg')");
+
+            // Añadir el botón a la escena
+            escena.appendChild(boton12);
+
+            const boton13 = document.createElement('a-box');
+            boton13.setAttribute('color', '#FF00FF');
+            boton13.setAttribute('position', '30 30 -20');
+            boton13.setAttribute('depth', '1');
+            boton13.setAttribute('height', '40');
+            boton13.setAttribute('width', '10');
+            boton13.setAttribute('class', 'boton-dinamico clickable');
+            boton13.setAttribute('material', 'opacity: 0; transparent: true');
+            boton13.setAttribute('onclick', "cambiarImagen('https://static.wixstatic.com/media/81f16a_03315aa45aa14b7680a7bff9744fd474~mv2.jpg')");
+
+            // Añadir el botón a la escena
+            escena.appendChild(boton13);
+        }
+        function crearBotonesImagen7() {
+            const escena = document.querySelector('a-scene');
+
+            // Aquí puedes agregar más botones si es necesario para la tercera imagen
+
+            // Ejemplo: crear un botón de vuelta a la imagen 1
+            const boton14 = document.createElement('a-box');
+            boton14.setAttribute('color', '#FF00FF');
+            boton14.setAttribute('position', '1 0 5');
+            boton14.setAttribute('depth', '1');
+            boton14.setAttribute('height', '10');
+            boton14.setAttribute('width', '3');
+            boton14.setAttribute('class', 'boton-dinamico clickable');
+            boton14.setAttribute('material', 'opacity: 0; transparent: true');
+            boton14.setAttribute('onclick', "cambiarImagen('https://static.wixstatic.com/media/81f16a_70c68efb961248b499d28d7bb7d2cac3~mv2.jpg')");
+
+            // Añadir el botón a la escena
+            escena.appendChild(boton14);
+
+            const boton15 = document.createElement('a-box');
+            boton15.setAttribute('color', '#FF00FF');
+            boton15.setAttribute('position', '-5 0 -10');
+            boton15.setAttribute('depth', '1');
+            boton15.setAttribute('height', '10');
+            boton15.setAttribute('width', '3');
+            boton15.setAttribute('class', 'boton-dinamico clickable');
+            boton15.setAttribute('material', 'opacity: 0; transparent: true');
+            boton15.setAttribute('onclick', "cambiarImagen('https://static.wixstatic.com/media/81f16a_7c6ddf96418a45b78239f3df78e78770~mv2.jpg')");
+
+            // Añadir el botón a la escena
+            escena.appendChild(boton15);
+
+            const boton16 = document.createElement('a-box');
+            boton16.setAttribute('color', '#FFFFFF');
+            boton16.setAttribute('position', '13 0 5');
+            boton16.setAttribute('depth', '4');
+            boton16.setAttribute('height', '20');
+            boton16.setAttribute('width', '1');
+            boton16.setAttribute('class', 'boton-dinamico clickable');
+            boton16.setAttribute('material', 'opacity: 0; transparent: true');
+            boton16.setAttribute('onclick', "cambiarImagen('https://static.wixstatic.com/media/81f16a_afa694ce2e624c84a020de0bb2e87c20~mv2.jpg')");
+
+            // Añadir el botón a la escena
+            escena.appendChild(boton16);
+
+            const boton6 = document.createElement('a-box');
+            boton6.setAttribute('color', '#FF00FF');
+            boton6.setAttribute('position', '4 0 -5');
+            boton6.setAttribute('depth', '2');
+            boton6.setAttribute('height', '10');
+            boton6.setAttribute('width', '4');
+            boton6.setAttribute('class', 'boton-dinamico clickable');
+            boton6.setAttribute('material', 'opacity: 0; transparent: true');
+            boton6.setAttribute('onclick', "cambiarImagen('https://static.wixstatic.com/media/81f16a_806749445c714aa2865d114c1b0ed49a~mv2.jpg')");
+
+            // Añadir el botón a la escena
+            escena.appendChild(boton6);
+        }
+
+        function crearBotonesImagen8() {
+            const escena = document.querySelector('a-scene');
+
+            // Aquí puedes agregar más botones si es necesario para la tercera imagen
+
+            // Ejemplo: crear un botón de vuelta a la imagen 1
+            const boton4 = document.createElement('a-box');
+            boton4.setAttribute('color', '#FF00FF');
+            boton4.setAttribute('position', '-5 0 0');
+            boton4.setAttribute('depth', '4');
+            boton4.setAttribute('height', '10');
+            boton4.setAttribute('width', '1');
+            boton4.setAttribute('class', 'boton-dinamico clickable');
+            boton4.setAttribute('material', 'opacity: 0; transparent: true');
+            boton4.setAttribute('onclick', "cambiarImagen('https://static.wixstatic.com/media/81f16a_03315aa45aa14b7680a7bff9744fd474~mv2.jpg')");
+
+            // Añadir el botón a la escena
+            escena.appendChild(boton4);
+        }
+
+        function crearBotonesImagen9() {
+            const escena = document.querySelector('a-scene');
+
+            // Aquí puedes agregar más botones si es necesario para la tercera imagen
+
+            // Ejemplo: crear un botón de vuelta a la imagen 1
+            const boton4 = document.createElement('a-box');
+            boton4.setAttribute('color', '#FF00FF');
+            boton4.setAttribute('position', '-2.5 -5 5');
+            boton4.setAttribute('depth', '1');
+            boton4.setAttribute('height', '10');
+            boton4.setAttribute('width', '5');
+            boton4.setAttribute('class', 'boton-dinamico clickable');
+            boton4.setAttribute('material', 'opacity: 0; transparent: true');
+            boton4.setAttribute('onclick', "cambiarImagen('https://static.wixstatic.com/media/81f16a_03315aa45aa14b7680a7bff9744fd474~mv2.jpg')");
+
+            // Añadir el botón a la escena
+            escena.appendChild(boton4);
+        }
+        function crearBotonesImagen10() {
+            const escena = document.querySelector('a-scene');
+
+            // Aquí puedes agregar más botones si es necesario para la tercera imagen
+
+            // Ejemplo: crear un botón de vuelta a la imagen 1
+            const boton4 = document.createElement('a-box');
+            boton4.setAttribute('color', '#FF00FF');
+            boton4.setAttribute('position', '-10 0 10');
+            boton4.setAttribute('depth', '15');
+            boton4.setAttribute('height', '30');
+            boton4.setAttribute('width', '15');
+            boton4.setAttribute('class', 'boton-dinamico clickable');
+            boton4.setAttribute('material', 'opacity: 0; transparent: true');
+            boton4.setAttribute('onclick', "cambiarImagen('https://static.wixstatic.com/media/81f16a_03315aa45aa14b7680a7bff9744fd474~mv2.jpg')");
+
+            // Añadir el botón a la escena
+            escena.appendChild(boton4);
+        }
+        
+        function crearBotonesImagen11() {
+            const escena = document.querySelector('a-scene');
+
+            // Aquí puedes agregar más botones si es necesario para la tercera imagen
+
+            // Ejemplo: crear un botón de vuelta a la imagen 1
+            const boton4 = document.createElement('a-box');
+            boton4.setAttribute('color', '#FF00FF');
+            boton4.setAttribute('position', '-35 0 18');
+            boton4.setAttribute('depth', '60');
+            boton4.setAttribute('height', '100');
+            boton4.setAttribute('width', '5');
+            boton4.setAttribute('class', 'boton-dinamico clickable');
+            boton4.setAttribute('material', 'opacity: 0; transparent: true');
+            boton4.setAttribute('onclick', "cambiarImagen('https://static.wixstatic.com/media/81f16a_0dd368a686614c498ee1ff8c636a1568~mv2.jpg')");
+
+            // Añadir el botón a la escena
+            escena.appendChild(boton4);
+        }
+        
+        // Inicializar con los botones de la primera imagen
+        crearBotonesImagen4();
+    </script>
+</body>
+</html>
